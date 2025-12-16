@@ -1,10 +1,10 @@
-# vuln.py - FIXED version
+# vuln.py - fixed version
 
 import subprocess
 
 def run_system_cmd(cmd_list):
-    # Safe subprocess execution
+    # Safe execution without shell=True
     subprocess.run(cmd_list, check=True)
 
 if __name__ == "__main__":
-    run_system_cmd(["echo", "safe now"])
+    run_system_cmd(["echo", "secure now"])
