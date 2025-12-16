@@ -1,14 +1,10 @@
-# vuln.py - intentionally vulnerable for Bandit demo
+# vuln.py - FIXED version
 
 import subprocess
 
-# Hardcoded password (Bandit flags B105)
-password = "P@ssw0rd123"
-
-def run_system_cmd(cmd):
-    # Dangerous shell execution (Bandit flags B602/B603)
-    subprocess.call(cmd, shell=True)
+def run_system_cmd(cmd_list):
+    # Safe subprocess execution
+    subprocess.run(cmd_list, check=True)
 
 if __name__ == "__main__":
-    user_input = "echo vulnerable"
-    run_system_cmd(user_input)
+    run_system_cmd(["echo", "safe now"])
